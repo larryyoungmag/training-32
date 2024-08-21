@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-
 <html>
 <head>
     <title>Checking Your Age</title>
 </head>
-
 <body>
 
 <form method="POST">
@@ -12,7 +10,9 @@
     <button type="submit">CHECK</button>
 </form>
 
-<p>You will be {{ age }} years old in the year 2030.</p>
-</body>
+{% if age %}
+<p>You need to marry someone who is {{ age }} years old.</p>
+{% endif %}
 
+</body>
 </html>
