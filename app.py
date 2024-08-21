@@ -7,8 +7,8 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
-    # Initialize a variable to store the calculated woman's age, default is 0
-    result_age = 0
+    # Initialize a variable to store the calculated woman's age, default is an empty string
+    result_age = ""
     
     if request.method == 'POST':
         try:
@@ -17,10 +17,10 @@ def index():
             # Calculation: Woman's Age = Man's Age / 2 + 7
             result_age = man_age // 2 + 7
         except ValueError:
-            # If the input is not a valid integer, return an empty string
+            # If the input is not a valid integer, set result_age to an empty string
             result_age = ""
             
-    # Render the index.html template and pass the processed age to it
+    # Render the index.html template and pass the calculated woman's age to it
     return render_template("index.html", age=result_age)
 
 # Run the Flask application in debug mode when the script is executed directly
